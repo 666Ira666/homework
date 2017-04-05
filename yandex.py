@@ -25,5 +25,5 @@ class Suggester(object):
 s = Suggester()
 s.key = 'диор'
 for i in s.suggestions:
-    print i
+    print(i)
     
