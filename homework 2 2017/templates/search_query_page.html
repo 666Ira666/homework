@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Search in subtitles</title>
+    <title>Search results</title>
 <link rel="stylesheet" href="/static/style.css" type="text/css">
 </head>
 <body>
@@ -55,9 +55,7 @@ input[type=text]:focus {
 {% endif %}
 {% endblock %}
 
-<form action="/search" method="POST">
-  <input type="text" name="query" placeholder="Search.." style="position:absolute; top:50%; left: 40%;">
-</form>
-<a href='/search/results' class="button" style="top:60%; right: 47%;">Go</a>
+<p>You looked for a word {{q}}:</p>
+
 </body>
 </html>
