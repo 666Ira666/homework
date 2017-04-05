@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     if not session.get('logged_in'):
-        return render_template('login_1.html')
+        return render_template('login.html')
     else:
         return render_template('home_page.html')
 

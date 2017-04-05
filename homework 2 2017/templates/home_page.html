@@ -10,10 +10,19 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
 }
+    h2 {
+    text-alignment: center;
+    position: absolute;
+    left: 200px;
+    bottom: 30px;
+    color: #D0CDCE;
+    font-family: "Verdana";
+    font-size: 33pt;
+}
 </style>
 {% block body %}
 {% if session['logged_in'] %}
-<p>This the corpus of Girls HBO subtitles</p>
+<h2>This the corpus of Girls HBO subtitles</h2>
 <p><a href='/logout'>Logout</a></p>
 {% else %}
 <p>Wrong username or password!</p>
