@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+<html lang="en">
+<head>
+    <title>My Webpage</title>
 </head>
 <body>
+    <ul id="navigation">
+    {% for item in navigation %}
+        <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <h1>This is a corpus of Something</h1>
+    {{ a_variable }}
+
+    {# a comment #}
+
+{% macro input(name, value='', type='text', size=20) -%}
+    <input type="{{ type }}" name="{{ name }}" value="{{
+        value|e }}" size="{{ size }}">
+{%- endmacro %}
+
+<p>{{ input('username') }}</p>
+<p>{{ input('password', type='password') }}</p>
 
 </body>
 </html>
