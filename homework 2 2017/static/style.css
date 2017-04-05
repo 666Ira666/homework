@@ -91,6 +91,28 @@ box-shadow: none;
 
 .button:hover {background-color: #E03B6D}
 
+.button1 {
+    position:absolute;
+    top: 60%;
+    right: 45%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: #D98F8F;
+    color: #ffffff;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1:hover {background-color: #E03B6D}
+
 h2 {
     display:inline;
     text-shadow: 0 0 10px hsla(340, 100%, 25%, 0.5),
@@ -113,22 +135,4 @@ h2 {
   color: #444;
   display: block;
 	margin-top: 12px;
-}
-
-input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: white;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.1s ease-in-out;
-    transition: width 0.1s ease-in-out;
-    text-align: left;
-}
-
-input[type=text]:focus {
-    width: 20%;
 }

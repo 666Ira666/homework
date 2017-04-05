@@ -1,14 +1,14 @@
 <html>
 <head>
-    <title>Home page</title>
+    <title>Search in subtitles</title>
 <link rel="stylesheet" href="/static/style.css" type="text/css">
 </head>
 <body>
 <style>
 body {
-    background-image: url("static/images/home_page_bg_3.png");
+    background-image: url("static/images/search_page_bg.png");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 103%;
 }
 
 p {display:inline;
@@ -20,21 +20,40 @@ p {display:inline;
                  0 0 5px hsla(340, 100%, 25%, 1);
     text-alignment: center;
     position: absolute;
-    left: 260px;
+    left: 200px;
     bottom: 50px;
     color: #D0CDCE;
     font-family: "Verdana";
-    font-size: 33pt;
+    font-size: 20pt;
     }
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #D98F8F;
+    background-repeat: no-repeat;
+    color: #E03B6D;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.1s ease-in-out;
+    transition: width 0.1s ease-in-out;
+    text-align: left;
+
+}
+
+input[type=text]:focus {
+    width: 20%;
+}
 </style>
 {% block body %}
 {% if session['logged_in'] %}
-<h2>This is the corpus of Girls HBO subtitles</h2>
-<a href='/logout' class="button">Log out</a>
-<a href='/search' class="button1">Search</a>
 {% else %}
-<p>Wrong username or password!</p>
 {% endif %}
 {% endblock %}
+<form>
+  <input type="text" name="search" placeholder="Search.." style="position:absolute; top:50%; left: 40%;">
+</form>
 </body>
 </html>

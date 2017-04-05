@@ -31,7 +31,7 @@ def logout():
 
 @app.route("/search")
 def search():
-    return render_template('search.html')
+    return render_template('search_page.html')
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
