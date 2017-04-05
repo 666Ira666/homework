@@ -10,20 +10,38 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
 }
-    h2 {
+h2 {
+    text-shadow: 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 5px hsla(340, 100%, 25%, 1),
+                 0 0 5px hsla(340, 100%, 25%, 1),
+                 0 0 5px hsla(340, 100%, 25%, 1);
     text-alignment: center;
     position: absolute;
     left: 200px;
-    bottom: 30px;
+    bottom: 50px;
     color: #D0CDCE;
     font-family: "Verdana";
     font-size: 33pt;
+}
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 </style>
 {% block body %}
 {% if session['logged_in'] %}
 <h2>This the corpus of Girls HBO subtitles</h2>
-<p><a href='/logout'>Logout</a></p>
+<button type="button"><a href='/logout'>Logout</a></button>
 {% else %}
 <p>Wrong username or password!</p>
 {% endif %}
