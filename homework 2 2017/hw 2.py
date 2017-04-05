@@ -35,13 +35,15 @@ def logout():
 def search():
     if request.method == "POST":
         query = request.form['query']
-        return search_results(query)
+        corpus = open('corpus', 'r').read().lower()
+        number = corpus.count(query)
+        return search_results(query, number)
     return render_template('search_page.html')
 
 
 @app.route("/search/results/<query>", methods=['GET', 'POST'])
-def search_results(q):
-    return render_template('search_query_page.html', q=q)
+def search_results(q, n):
+    return render_template('search_query_page.html', q=q, n=n)
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
