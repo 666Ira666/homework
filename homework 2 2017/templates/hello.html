@@ -1,7 +1,9 @@
-<!doctype html>
-<title>Hello from Flask</title>
-{% if name %}
-  <h1>Hello {{ name }}!</h1>
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+{% block body %}
+{% if session['logged_in'] %}
+<p>You're logged in!</p>
+<p><a href='/logout'>Logout</a></p>
 {% else %}
-  <h1>Hello, World!</h1>
+<p>Wrong username or password!</p>
 {% endif %}
+{% endblock %}
