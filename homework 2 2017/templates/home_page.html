@@ -10,7 +10,8 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
 }
-h2 {
+
+p {display:inline;
     text-shadow: 0 0 10px hsla(340, 100%, 25%, 0.5),
                  0 0 10px hsla(340, 100%, 25%, 0.5),
                  0 0 10px hsla(340, 100%, 25%, 0.5),
@@ -24,27 +25,18 @@ h2 {
     color: #D0CDCE;
     font-family: "Verdana";
     font-size: 33pt;
-}
-.button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
+    }
 </style>
 {% block body %}
 {% if session['logged_in'] %}
-<h2>This the corpus of Girls HBO subtitles</h2>
-<button type="button"><a href='/logout'>Logout</a></button>
+<h2>This is the corpus of Girls HBO subtitles</h2>
+<a href='/logout' class="button">Log out</a>
 {% else %}
 <p>Wrong username or password!</p>
 {% endif %}
 {% endblock %}
+<form>
+  <input type="text" name="search" placeholder="Search..">
+</form>
 </body>
 </html>

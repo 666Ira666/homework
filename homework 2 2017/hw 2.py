@@ -22,10 +22,16 @@ def do_admin_login():
         return render_template('home_page.html')
     return home()
 
+
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
     return home()
+
+
+@app.route("/search")
+def search():
+    return render_template('search.html')
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)

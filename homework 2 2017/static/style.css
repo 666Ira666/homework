@@ -7,7 +7,7 @@ box-sizing: border-box;
 }
 body {
 font-family: Arial;
-background-color: #FAAAD3;
+background-color: #F9C4DF;
 padding: 50px;
 }
 .login {
@@ -51,7 +51,7 @@ box-shadow: none;
 
 .btn {
   border: 2px solid transparent;
-  background: #E03B6D;
+  background: #D98F8F;
   color: #ffffff;
   font-size: 16px;
   line-height: 25px;
@@ -64,10 +64,48 @@ box-shadow: none;
   display: block;
   width: 250px;
   margin: 0 auto;
+  cursor: pointer;
 }
 
-.btn:hover {
-  background-color: #2980B9;
+.btn:hover {background-color: #E03B6D}
+
+.button {
+    position:absolute;
+    top: 30px;
+    right: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: #D98F8F;
+    color: #ffffff;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover {background-color: #E03B6D}
+
+h2 {
+    display:inline;
+    text-shadow: 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 5px hsla(340, 100%, 25%, 1),
+                 0 0 5px hsla(340, 100%, 25%, 1),
+                 0 0 5px hsla(340, 100%, 25%, 1);
+    text-alignment: center;
+    position: absolute;
+    left: 200px;
+    bottom: 50px;
+    color: #D0CDCE;
+    font-family: "Verdana";
+    font-size: 33pt;
 }
 
 .login-link {
@@ -75,4 +113,22 @@ box-shadow: none;
   color: #444;
   display: block;
 	margin-top: 12px;
+}
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.1s ease-in-out;
+    transition: width 0.1s ease-in-out;
+    text-align: left;
+}
+
+input[type=text]:focus {
+    width: 20%;
 }
