@@ -8,7 +8,7 @@ def home():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        return render_template('hello_1.html')
+        return render_template('hello.html')
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
