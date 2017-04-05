@@ -8,14 +8,14 @@ def home():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        return render_template('hello.html')
+        return render_template('home_page.html')
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
     if request.form['password'] == 'password' and request.form['username'] == 'admin':
         session['logged_in'] = True
     else:
-        return render_template('hello.html')
+        return render_template('home_page.html')
     return home()
 
 @app.route("/logout")

@@ -1,27 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>My Webpage</title>
+    <title>Home page</title>
+<link rel="stylesheet" href="/static/style.css" type="text/css">
 </head>
 <body>
-    <ul id="navigation">
-    {% for item in navigation %}
-        <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
-    {% endfor %}
-    </ul>
-
-    <h1>This is a corpus of Something</h1>
-    {{ a_variable }}
-
-    {# a comment #}
-
-{% macro input(name, value='', type='text', size=20) -%}
-    <input type="{{ type }}" name="{{ name }}" value="{{
-        value|e }}" size="{{ size }}">
-{%- endmacro %}
-
-<p>{{ input('username') }}</p>
-<p>{{ input('password', type='password') }}</p>
-
+<style>
+body {
+    background-image: url("static/images/home_page_bg_3.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+</style>
+{% block body %}
+{% if session['logged_in'] %}
+<p>This the corpus of Girls HBO subtitles</p>
+<p><a href='/logout'>Logout</a></p>
+{% else %}
+<p>Wrong username or password!</p>
+{% endif %}
+{% endblock %}
 </body>
 </html>
