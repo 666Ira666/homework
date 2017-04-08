@@ -13,7 +13,7 @@ gif = './static/images/gifs/' + choice(rand)
 @app.route('/')
 def home(g=gif):
     if not session.get('logged_in'):
-        return render_template('login.html')
+        return render_template('login.html', g=g)
     else:
         return render_template('home_page.html', g=g)
 
@@ -25,7 +25,6 @@ def do_admin_login():
         if request.form['password'] == db[request.form['username']]:
             session['logged_in'] = True
         else:
-            flash('Wrong password')
             return home()
     else:
         return home()
