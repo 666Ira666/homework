@@ -50,7 +50,7 @@ def search():
     return render_template('search_page.html')
 
 
-@app.route("/search/results/<query>", methods=['GET', 'POST'])
+@app.route("/search/results", methods=['GET', 'POST'])
 def search_results(q, n, sentences):
     return render_template('search_query_page.html', q=q, n=n, s=sentences)
 

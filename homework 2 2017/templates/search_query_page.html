@@ -15,11 +15,11 @@ p {
                  0 0 5px hsla(340, 100%, 25%, 1);
     color: #D0CDCE;
     font-family: "Verdana";
-    font-size: 20pt;
+    font-size: 14pt;
     }
 
 input[type=text] {
-    width: 130px;
+    width: 140px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 5px;
@@ -35,22 +35,27 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-    width: 20%;
+    width: 21%;
 }
+
 
 </style>
 
-<p>You looked for a word <i>{{q}}</i></p>
-<p>Here's what we got:</p>
+<form action="/search" method="POST">
+  <input type="text" name="query" placeholder="Search for something else.." style="position:absolute; top:30px; right: 10px;">
+</form>
+<a href='/search/results' class="button" style="top:80px; right: 10px;">Go</a>
+<p style="font-size:30px;">You looked for a word <i>{{q}}</i></p>
+<p style="font-size:30px;">"Here's what we got:</p>
 {% block body %}
 {% if n == 1%}
-<p><i>{{q}}</i> occurs at our corpus {{n}} time</p>
+<p style="font-size:30px;"><i>{{q}}</i> occurs at our corpus {{n}} time</p>
 {% else %}
-<p><i>{{q}}</i> occurs at our corpus {{n}} times</p>
+<p style="font-size:30px;"><i>{{q}}</i> occurs at our corpus {{n}} times</p>
 {% endif %}
 {% if n != 0%}
 {% for l in s %}
-<p> {{l[0]}}. {{l[1]}} </p>
+<p style="text-shadow:0px 0px; color: hsla(340, 100%, 25%, 1);"> {{l[0]}}. {{l[1]}} </p>
 {% endfor %}
 {% endif %}
 {% endblock %}
