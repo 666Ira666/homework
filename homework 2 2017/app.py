@@ -36,11 +36,11 @@ def search():
     if request.method == "POST":
         sentences = []
         query = request.form['query']
-        corpus = open('corpus', 'r')
+        corpus = open('corpus.txt', 'r', encoding='utf-8')
         corpus_read = corpus.read().lower().split()
         number = corpus_read.count(query)
         corpus.close()
-        corpus = open('corpus', 'r')
+        corpus = open('corpus.txt', 'r', encoding='utf-8')
         num = 0
         for line in corpus:
             if query.lower() in line.lower().split():
@@ -50,7 +50,7 @@ def search():
     return render_template('search_page.html')
 
 
-@app.route("/search/results", methods=['GET', 'POST'])
+@app.route("/search/results/<q>", methods=['GET', 'POST'])
 def search_results(q, n, sentences):
     return render_template('search_query_page.html', q=q, n=n, s=sentences)
 
