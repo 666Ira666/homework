@@ -50,7 +50,8 @@ input[type=text]:focus {
 {% endif %}
 {% if n != 0%}
 {% for l in s %}
-<p> {{l}} </p>
+<p> {{l[0]}}. {{l[1]}} </p>
+{% endfor %}
 {% endif %}
 {% endblock %}
 

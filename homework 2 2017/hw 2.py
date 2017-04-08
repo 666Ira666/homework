@@ -37,13 +37,15 @@ def search():
         sentences = []
         query = request.form['query']
         corpus = open('corpus', 'r')
-        corpus_read = corpus.read().lower()
+        corpus_read = corpus.read().lower().split()
         number = corpus_read.count(query)
         corpus.close()
         corpus = open('corpus', 'r')
+        num = 0
         for line in corpus:
-            if query.lower() in line:
-                sentences.append(line)
+            if query.lower() in line.lower().split():
+                num += 1
+                sentences.append([num, line])
         return search_results(query, number, sentences)
     return render_template('search_page.html')
 
