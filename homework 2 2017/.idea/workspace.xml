@@ -520,7 +520,13 @@
       <option name="project" value="LOCAL" />
       <updated>1491662040040</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="pre-final-version">
+      <created>1491662167529</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1491662167529</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
