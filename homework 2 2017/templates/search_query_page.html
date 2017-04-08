@@ -48,6 +48,10 @@ input[type=text]:focus {
 {% else %}
 <p><i>{{q}}</i> occurs at our corpus {{n}} times</p>
 {% endif %}
+{% if n != 0%}
+{% for l in s %}
+<p> {{l}} </p>
+{% endif %}
 {% endblock %}
 
 </body>

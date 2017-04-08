@@ -34,16 +34,23 @@ def logout():
 @app.route("/search", methods=['GET', 'POST'])
 def search():
     if request.method == "POST":
+        sentences = []
         query = request.form['query']
-        corpus = open('corpus', 'r').read().lower()
-        number = corpus.count(query)
-        return search_results(query, number)
+        corpus = open('corpus', 'r')
+        corpus_read = corpus.read().lower()
+        number = corpus_read.count(query)
+        corpus.close()
+        corpus = open('corpus', 'r')
+        for line in corpus:
+            if query.lower() in line:
+                sentences.append(line)
+        return search_results(query, number, sentences)
     return render_template('search_page.html')
 
 
 @app.route("/search/results/<query>", methods=['GET', 'POST'])
-def search_results(q, n):
-    return render_template('search_query_page.html', q=q, n=n)
+def search_results(q, n, sentences):
+    return render_template('search_query_page.html', q=q, n=n, s=sentences)
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
