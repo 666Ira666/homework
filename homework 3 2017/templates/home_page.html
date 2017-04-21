@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Home page</title>
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+</head>
+<body>
+<style>
+body {
+    background-image: url("static/images/home_page_bg_3.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+p {display:inline;
+    text-shadow: 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 5px hsla(340, 100%, 25%, 1),
+                 0 0 5px hsla(340, 100%, 25%, 1),
+                 0 0 5px hsla(340, 100%, 25%, 1);
+    text-alignment: center;
+    position: absolute;
+    left: 260px;
+    bottom: 50px;
+    color: #D0CDCE;
+    font-family: "Verdana";
+    font-size: 33pt;
+    }
+</style>
+
+{% block body %}
+{% if session['logged_in'] %}
+<h2>This is the corpus of Girls HBO subtitles</h2>
+<a href='/logout' class="button">Log out</a>
+<a href='/search' class="button1">Search</a>
+<img src="{{g}}" alt="gif" style="width:350px;height:228px;position:absolute;top:100px;right:300px;border-radius:5px;">
+{% else %}
+<p>Wrong username or password!</p>
+<a href='/login' class="button">Log in</a>
+{% endif %}
+{% endblock %}
+</body>
+</html>

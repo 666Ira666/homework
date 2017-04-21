@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Search in subtitles</title>
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+</head>
+<body>
+<style>
+body {
+    background-image: url("static/images/search_page_bg.png");
+    background-repeat: no-repeat;
+    background-size: 103%;
+}
+
+p {display:inline;
+    text-shadow: 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 5px hsla(340, 100%, 25%, 1),
+                 0 0 5px hsla(340, 100%, 25%, 1),
+                 0 0 5px hsla(340, 100%, 25%, 1);
+    text-alignment: center;
+    position: absolute;
+    left: 200px;
+    bottom: 50px;
+    color: #D0CDCE;
+    font-family: "Verdana";
+    font-size: 20pt;
+    }
+
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #D98F8F;
+    background-repeat: no-repeat;
+    color: #E03B6D;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.1s ease-in-out;
+    transition: width 0.1s ease-in-out;
+    text-align: left;
+
+}
+
+input[type=text]:focus {
+    width: 20%;
+}
+
+</style>
+
+{% block body %}
+{% if session['logged_in'] %}
+{% else %}
+{% endif %}
+{% endblock %}
+
+<form action="/search" method="POST">
+  <input type="text" name="query" placeholder="Search.." style="position:absolute; top:50%; left: 40%;">
+</form>
+<a href='/search/results' class="button" style="top:60%; right: 47%;">Go</a>
+</body>
+</html>

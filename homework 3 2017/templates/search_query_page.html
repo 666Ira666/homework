@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>Search results</title>
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+</head>
+<body>
+<style>
+
+p {
+    text-shadow: 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 10px hsla(340, 100%, 25%, 0.5),
+                 0 0 5px hsla(340, 100%, 25%, 1),
+                 0 0 5px hsla(340, 100%, 25%, 1),
+                 0 0 5px hsla(340, 100%, 25%, 1);
+    color: #D0CDCE;
+    font-family: "Verdana";
+    font-size: 14pt;
+    }
+
+input[type=text] {
+    width: 140px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #D98F8F;
+    background-repeat: no-repeat;
+    color: #E03B6D;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.1s ease-in-out;
+    transition: width 0.1s ease-in-out;
+    text-align: left;
+
+}
+
+input[type=text]:focus {
+    width: 21%;
+}
+
+
+input[type=text]::-webkit-input-placeholder {
+    color: #D0CDCE;
+   }
+input[type=text]::-moz-placeholder {
+    color: #D0CDCE;
+   }
+
+</style>
+
+<form action="/search" method="POST">
+  <input type="text" name="query" placeholder="Search for something else.." style="position:absolute; top:30px; right: 10px;">
+</form>
+<a href='/search/results' class="button" style="top:80px; right: 10px;">Go</a>
+<p style="font-size:30px;">You looked for a word <i>{{q}}</i></p>
+<p style="font-size:30px;">Here's what we got:</p>
+{% block body %}
+{% if n == 1%}
+<p style="font-size:30px;"><i>{{q}}</i> occurs at our corpus {{n}} time</p>
+{% else %}
+<p style="font-size:30px;"><i>{{q}}</i> occurs at our corpus {{n}} times</p>
+{% endif %}
+{% if n != 0%}
+{% for l in s %}
+<p style="text-shadow:0px 0px; color: hsla(340, 100%, 25%, 1);"> {{l[0]}}. {{l[1]}} </p>
+{% endfor %}
+{% endif %}
+{% endblock %}
+
+</body>
+</html>
