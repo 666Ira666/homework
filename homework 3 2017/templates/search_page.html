@@ -47,6 +47,14 @@ input[type=text]:focus {
     width: 27%;
 }
 
+input[type=checkbox]:after {
+    content: attr(value);
+    margin: -3px 15px;
+    vertical-align: top;
+    white-space:nowrap;
+    display: inline-block;
+}
+
 </style>
 
 {% block body %}
@@ -56,9 +64,12 @@ input[type=text]:focus {
 {% endblock %}
 
 <form action="/search" method="POST">
-  <input type="text" name="query" placeholder="Search by one word" style="position:absolute; top:50%; left: 40%;">
-  <input type="text" name="query" placeholder="Search by two words expression" style="position:absolute; top:60%; left: 40%;">
-    <input type="submit" value="Go" style="position:absolute; top:70%; right: 47%;">
+  <input type="text" name="query1" placeholder="Search by one word"
+         style="position:absolute; top:50%; left: 40%;">
+  <input type="text" name="query2" placeholder="Add the second word to your search"
+         style="position:absolute; top:60%; left: 40%;">
+    <input type="submit" value="Go" class='button' style="position:absolute; top:70%; right: 47%;">
+    <input type="checkbox" name="case" value='Case sensitive search' style="position:absolute; top:80%; right: 47%;">
 </form>
 </body>
 </html>

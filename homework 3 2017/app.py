@@ -40,25 +40,24 @@ def logout():
 @app.route("/search", methods=['GET', 'POST'])
 def search():
     if request.method == "POST":
-        print(request)
         sentences = []
-        query = request.form['query']
-        print('query', query)
+        query1 = request.form['query1']
+        query2 = request.form['query2']
         corpus = open('./texts/corpus.txt', 'r', encoding='utf-8')
         corpus_read = corpus.read().lower().split()
-        number = corpus_read.count(query)
+        number = corpus_read.count(query1)
         corpus.close()
         corpus = open('./texts/corpus.txt', 'r', encoding='utf-8')
         num = 0
         for line in corpus:
-            if query.lower() in line.lower().split():
+            if query1.lower() in line.lower().split():
                 num += 1
                 sentences.append([num, line])
-        return search_results(query, number, sentences)
+        return search_results(query1, number, sentences)
     return render_template('search_page.html')
 
 
-@app.route("/search/results", methods=['GET', 'POST'])
+@app.route("/search/results/<q>", methods=['GET', 'POST'])
 def search_results(q, n, sentences):
     return render_template('search_query_page.html', q=q, n=n, s=sentences)
 
