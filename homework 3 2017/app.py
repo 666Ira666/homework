@@ -4,9 +4,11 @@ import os
 
 app = Flask(__name__)
 
-for root, dirs, files in os.walk('./static/images/gifs/'):
-    files = files
-rand = list(filter(lambda file: file.endswith('.gif'), files))
+rand = []
+
+for file in os.listdir('./static/images/gifs/'):
+    if file.endswith('.gif'):
+        rand.append(file)
 
 gif = './static/images/gifs/' + choice(rand)
 
@@ -44,10 +46,9 @@ def search():
         sentences = []
         query1 = request.form['query1']
         query2 = request.form['query2']
-        print(type(request.form['case']), request.form['case'])
         if query2 is '':
             corpus = open('./texts/corpus.txt', 'r', encoding='utf-8')
-            if not request.form['case'] == 'Case sensitive search':
+            if len(request.form.getlist('case')) == 0:
                 corpus_read = corpus.read().lower().split()
                 number = corpus_read.count(query1)
                 corpus.close()
@@ -74,19 +75,17 @@ def search():
             corpus = open('./texts/corpus.txt', 'r', encoding='utf-8')
             num = 0
             for line in corpus:
-                if not request.form['case'] == 'Case sensitive search':
+                if len(request.form.getlist('case')) == 0:
                     line_n = line.lower().split()
                 else:
-                    line_n = line.lower()
+                    line_n = line.split()
                 for w in range(len(line_n)):
                     if query1 == line_n[w] and query2 == line_n[w+1]:
                         num += 1
                         sentences.append([num, line])
                         number += 1
             corpus.close()
-            print(sentences)
             return search_results(query1 + ' ' + query2, number, sentences, q2)
-
     return render_template('search_page.html')
 
 
