@@ -47,7 +47,7 @@ input[type=text]:focus {
     width: 27%;
 }
 
-input[type=checkbox]:after {
+input[type=radio]:after {
     content: attr(value);
     margin: -3px 15px;
     vertical-align: top;
@@ -69,7 +69,8 @@ input[type=checkbox]:after {
   <input type="text" name="query2" placeholder="Add the second word to your search"
          style="position:absolute; top:60%; left: 40%;">
     <input type="submit" value="Go" class='button' style="position:absolute; top:70%; right: 47%;">
-    <input type="checkbox" name="case" value='Case sensitive search' style="position:absolute; top:80%; right: 47%;">
+    <input type="radio" name="case"
+           value='Case sensitive search' style="position:absolute; top:80%; left: 40%;">
 </form>
 </body>
 </html>

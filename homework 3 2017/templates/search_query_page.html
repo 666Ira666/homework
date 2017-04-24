@@ -48,13 +48,24 @@ input[type=text]::-moz-placeholder {
 
 </style>
 
-<form action="/search" method="POST">
-  <input type="text" name="query" placeholder="Search for something else.." style="position:absolute; top:30px; right: 10px;">
-</form>
-<a href='/search/results' class="button" style="top:80px; right: 10px;">Go</a>
+<a href='/search' class="button" style="top:80px; right: 10px; width: 200px;">Search for something else..</a>
+{% block body %}
+{% if q2 == False %}
 <p style="font-size:30px;">You looked for a word <i>{{q}}</i></p>
 <p style="font-size:30px;">Here's what we got:</p>
-{% block body %}
+{% if n == 1 %}
+<p style="font-size:30px;"><i>{{q}}</i> occurs at our corpus {{n}} time</p>
+{% else %}
+<p style="font-size:30px;"><i>{{q}}</i> occurs at our corpus {{n}} times</p>
+{% endif %}
+{% if n != 0 %}
+{% for l in s %}
+<p style="text-shadow:0px 0px; color: hsla(340, 100%, 25%, 1);"> {{l[0]}}. {{l[1]}} </p>
+{% endfor %}
+{% endif %}
+{% else %}
+<p style="font-size:30px;">You looked for an expression <i>{{q}}</i></p>
+<p style="font-size:30px;">Here's what we got:</p>
 {% if n == 1%}
 <p style="font-size:30px;"><i>{{q}}</i> occurs at our corpus {{n}} time</p>
 {% else %}
@@ -64,6 +75,7 @@ input[type=text]::-moz-placeholder {
 {% for l in s %}
 <p style="text-shadow:0px 0px; color: hsla(340, 100%, 25%, 1);"> {{l[0]}}. {{l[1]}} </p>
 {% endfor %}
+{% endif %}
 {% endif %}
 {% endblock %}
 
